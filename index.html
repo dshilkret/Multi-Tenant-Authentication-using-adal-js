@@ -15,14 +15,25 @@
     </style>
     <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.42/polyfill.min.js" integrity="sha256-/XfEHUGimdIk42Vy7oTnNLtT8sVrO6vnhhnsQT1W1oo=" crossorigin="anonymous"></script>
+    <script>
+    	// Check browser support
+		if (typeof(Storage) !== "undefined") {
+		  // Store
+		  sessionStorage.setItem("lastname", "Shilkret");
+		  window.localStorage.setItem("dsKey", "dog");
+		  // Retrieve
+		  alert(sessionStorage.getItem("lastname"));
+		  alert(localStorage.getItem("dsKey", "dog"));
+		} else {
+		  alert("Sorry, your browser does not support Web Storage...");
+		}
+    	
+    </script>
 </head>
 
 <body>
     <p>
-        A minimal sample app using ADAL.JS and vanilla JavaScript to obtain
-        an access token from Azure Active Directory,Microsoft Graph and SharePoint and make an API request.
-    </p>
-    <p>Extended <a href="https://gist.github.com/psignoret/50e88652ae5cb6cc157c09857e3ba87f" target="_blank">Original sample</a> and tested with Multi Tenant Authentication and Multi Resource Token</p>
+        DEMO Graph and SP Online Token API Redirect Flow
     <p>
         <a href="#" onclick="authContext.login(); return false;" id="login">Log in</a><br/>
         <a href="#" onclick="authContext.logOut(); return false;" id="logout">Log out</a>
